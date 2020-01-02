@@ -39,7 +39,3 @@ class Auth:
         return self.auth_sessions
 
 
-if __name__ == '__main__':
-    a = Auth(username='fms/0051/17', password='apanayinime1')
-    session = a.login()
-    # print(session.session.cookies.get('Students'))

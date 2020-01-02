@@ -12,3 +12,7 @@ class RequestFailedException(BaseException):
 
 class DoubleRequestException(Exception):
     pass
+
+class ResultsIndexNotFound(ValueError):
+    pass
+
