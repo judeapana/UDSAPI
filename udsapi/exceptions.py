@@ -1,8 +1,8 @@
-class ValueNotFound(Exception):
+class ValueNotFoundException(Exception):
     pass
 
 
-class SignInFailed(Exception):
+class SignInFailedException(Exception):
     pass
 
 
@@ -13,6 +13,10 @@ class RequestFailedException(BaseException):
 class DoubleRequestException(Exception):
     pass
 
+
 class ResultsIndexNotFound(ValueError):
     pass
 
+
+class ResultsNotFoundException(Exception):
+    pass
