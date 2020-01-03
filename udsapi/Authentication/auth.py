@@ -1,9 +1,16 @@
-from udsapi.exceptions import SignInFailedException, DoubleRequestException
-from udsapi.engine import FetchEngine
-from udsapi.headers import Headers
+"""
+Authenticate User To Retrieve Session
+"""
+from udsapi.APIExceptions.exceptions import SignInFailedException, DoubleRequestException
+from udsapi.APIEngine.engine import FetchEngine
+from udsapi.APIHeaders.headers import Headers
 
 
 class Auth:
+    """
+    Authentication Manager
+    """
+
     def __init__(self, username, password):
         self.__username = username
         self.__password = password
@@ -21,13 +28,27 @@ class Auth:
 
     @property
     def sessionManager(self):
+        """
+
+        :return: session
+        """
         return self.__fetch
 
     @property
     def response(self):
+        """
+        response object
+        :return:
+        """
         return self.__response
 
     def login(self):
+        """
+        Use this function should be used once in authentication
+        if session dies or timeout it can be used again
+        :return:
+        """
+
         if not self.__fetch.session.cookies.get('Students') is None:
             raise DoubleRequestException('Cant have Double Authentication')
 
@@ -35,4 +56,3 @@ class Auth:
 
         if self.__fetch.session.cookies.get('Students') is None:
             raise SignInFailedException('Login Failed, Please Check Credentials')
-

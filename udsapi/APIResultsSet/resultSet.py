@@ -1,5 +1,9 @@
-from udsapi.exceptions import ResultsIndexNotFound, ResultsNotFoundException
-from udsapi.headers import Headers
+"""
+Class Retrieves Results Set
+"""
+
+from udsapi.APIExceptions.exceptions import ResultsIndexNotFound, ResultsNotFoundException
+from udsapi.APIHeaders.headers import Headers
 import json
 
 
@@ -10,6 +14,12 @@ class CourseResultSet:
         self.__table = None
 
     def parser_data(self):
+
+        """
+        retrieve data from course results set
+        :return: registered course
+        """
+
         self.__table = self.__fetch_eng.find('table', {'id': 'GridView1'})
         table = self.__table.findAll('td')
         if table is None:
@@ -22,10 +32,18 @@ class CourseResultSet:
         return registered_courses
 
     def parser_data_json(self):
+        """
+
+        :return: json of registered course
+        """
         return json.dumps(self.parser_data())
 
 
 class TableFinalResultSet:
+    """
+    Retrieve Final Results Of A Trimester
+    """
+
     def __init__(self, auth_session):
         self.__header = Headers()
         self.__auth_session = auth_session
@@ -39,13 +57,26 @@ class TableFinalResultSet:
 
     @property
     def numberOfResultsSet(self):
+        """
+        :return: number of final results
+        """
+
         return len(self.__result_labels)
 
     @property
     def resultsNames(self):
+        """
+        :return: (LIST) of all available trimester results
+        """
+
         return [i.text for i in self.__result_labels]
 
     def dumpResults(self, index):
+        """
+        :param index: index of results to retrieve
+        :return: single final results
+        """
+
         if int(index - 1) > self.numberOfResultsSet:
             raise ResultsIndexNotFound('Index Not Found')
         result_array = []
