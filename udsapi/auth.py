@@ -37,14 +37,3 @@ class Auth:
             raise SignInFailed('Login Failed, Please Check Credentials')
 
         return self.auth_sessions
-
-
-from udsapi.resultSet import *
-
-if __name__ == '__main__':
-    auth = Auth(username='fms/0051/17', password='apanayinime1')
-    auth.login()
-    course = CourseResultSet(auth.auth_sessions)
-    print(course.parser_data())
-    table = TableFinalResultSet(auth.auth_sessions)
-    print(table.dump_result(1))
