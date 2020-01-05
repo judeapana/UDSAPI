@@ -1,3 +1,5 @@
+__author__ = 'Apana Jude Yinime'
+
 """
 Authenticate User To Retrieve Session
 """

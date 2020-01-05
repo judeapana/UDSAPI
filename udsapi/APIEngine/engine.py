@@ -1,3 +1,4 @@
+__author__ = 'Apana Jude Yinime'
 """
 This is the base of the web scrapper
 Using Request and BeautifulSoup

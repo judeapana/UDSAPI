@@ -1,3 +1,4 @@
+__author__ = 'Apana Jude Yinime'
 """
 Class Retrieves Results Set
 """
