@@ -1,3 +1,6 @@
+*** UDSMIS BOT ***
+
+
 **This web scrapper is created  for students of UDS to easily access
 their results without having to access the boring UI of the main 
 application (No offense)**
