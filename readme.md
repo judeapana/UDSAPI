@@ -14,3 +14,7 @@ doesnt provide
 -->> Added graphing representation that the official website doesnt also provide
 and many more**
  
+
+**How TO USE 
+1. CLONE REPO
+2. EXECUTE main.py** 
