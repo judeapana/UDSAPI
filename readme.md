@@ -1,6 +1,6 @@
 **This web scrapper is created  for students of UDS to easily access
 their results without having to access the boring UI of the main 
-application (No offence)
+application (No offense)**
 
 Individuals(Students) can use this web scrapper to build
 all sort of interesting application 
