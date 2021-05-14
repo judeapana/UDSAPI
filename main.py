@@ -1,7 +1,7 @@
-from pprint import pprint
 from pandas import DataFrame
-from udsapi.Authentication.auth import Auth
+
 from udsapi.APIResultsSet.resultSet import CourseResultSet, TableFinalResultSet
+from udsapi.Authentication.auth import Auth
 
 print(" NB: THIS BOT ISNT A COMMAND LINE APP []")
 print(" :-) YOU CAN SUPPORT US BUILD THIS BOT ")
@@ -10,9 +10,10 @@ print("=====================")
 print("")
 username = input("Enter Your Student ID: ")
 password = input("Enter Your Password :")
+securityCode = input("Enter Your Security Code :")
 
 if username and password:
-    user = Auth(username, password)
+    user = Auth(username, password, securityCode)
     user.login()
     res = CourseResultSet(user.sessionManager)
     print("fetching results ....")

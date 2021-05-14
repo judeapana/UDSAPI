@@ -30,6 +30,18 @@ class Headers:
         self.__request['__VIEWSTATE'] = ''
         self.__request['__VIEWSTATEGENERATOR'] = ''
         self.__request['ctl00_ScriptManager1_HiddenField'] = ''
+        self.__request['ctl00$ContentPlaceHolder1$txtSecurityCode'] = ''
+
+    @property
+    def securityCode(self):
+        """
+        :return:
+        """
+        return self.__request['ctl00$ContentPlaceHolder1$txtSecurityCode']
+
+    @securityCode.setter
+    def securityCode(self, value):
+        self.__request['ctl00$ContentPlaceHolder1$txtSecurityCode'] = value
 
     @property
     def btnLogin(self):

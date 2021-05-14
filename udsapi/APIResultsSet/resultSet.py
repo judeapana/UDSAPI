@@ -10,7 +10,7 @@ import json
 
 class CourseResultSet:
     def __init__(self, auth_session):
-        self.__base_url = 'https://www.udsmis.com/students/coursesinformation'
+        self.__base_url = 'https://mis.uds.edu.gh/students/coursesinformation'
         self.__fetch_eng = auth_session.get(self.__base_url, session=False)
         self.__table = None
 
@@ -49,7 +49,7 @@ class TableFinalResultSet:
         self.__header = Headers()
         self.__auth_session = auth_session
         self.__header.eventTarget = 'btnSubmit'
-        self.__base_url = 'https://www.udsmis.com/students/searchresults'
+        self.__base_url = 'https://mis.uds.edu.gh/students/searchresults'
         self.__fetch_eng = self.__auth_session.get(self.__base_url, session=False)
         self.__header.eventValidator = self.__fetch_eng.find('input', {'name': '__EVENTVALIDATION'}).get('value')
         self.__header.viewState = self.__fetch_eng.find('input', {'name': '__VIEWSTATE'}).get('value')
@@ -82,7 +82,7 @@ class TableFinalResultSet:
             raise ResultsIndexNotFound('Index Not Found')
         result_array = []
         self.__header.requestHeader[f'chkResults${index - 1}'] = 'on'
-        self.__fetch_eng = self.__auth_session.post('https://www.udsmis.com/students/searchresults',
+        self.__fetch_eng = self.__auth_session.post('https://mis.uds.edu.gh/students/searchresults',
                                                     data=self.__header.requestHeader, session=False)
         form_action = self.__fetch_eng.find('form').get('action')
         results_form = form_action.replace('.', '').replace('print', 'resultsform')
